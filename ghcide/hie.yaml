@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./"
+      component: "ghcide:lib"
+  cabal:
+    - path: "./"
+      component: "ghcide:lib"
