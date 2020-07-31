@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b58660f699f31d0e993c051871bd6521e96be141778351ff71e3557397bdd84c
+-- hash: b1a312ca6d761dede45c50a7b00aae6f8281747992914f7c16906ad0543a4989
 
 name:           euler
 version:        0.1.0.0
@@ -20,6 +20,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , containers
     , hspec
   default-language: Haskell2010
 
@@ -32,6 +33,7 @@ executable euler-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , euler
     , hspec
   default-language: Haskell2010
@@ -40,7 +42,6 @@ test-suite euler-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      DummySpec
       Problem1Spec
       Problem2Spec
       Paths_euler
@@ -49,6 +50,7 @@ test-suite euler-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
     , euler
     , hspec
   default-language: Haskell2010
