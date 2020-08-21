@@ -4,10 +4,14 @@ solution :: Int -> (Int, Int, Int)
 solution digit = 
     let startNumber = maxNumberDigit digit in
         f startNumber startNumber 
-            where f multiplying multiplied
-                    | isPalindrome (digs currentNum) = (currentNum, multiplying, multiplied) 
-                    | otherwise = f (multiplying-1) multiplied 
-                        where currentNum = multiplying*multiplied 
+            where f multiplying multiplied = 
+                        let 
+                            g x y 
+                             | isPalindrome (digs currentNum) = (currentNum, x, y) 
+                             | x > 1 = g (x-1) y 
+                             | otherwise = f (multiplying) (y-1) 
+                             where currentNum = x*y 
+                        in g multiplying multiplied
 
 digs :: Int -> [Int]
 digs number = f number 
@@ -20,3 +24,6 @@ isPalindrome numberSeq = numberSeq == (reverse numberSeq)
 
 maxNumberDigit :: Int -> Int 
 maxNumberDigit digit = (10^digit)-1  
+
+
+
