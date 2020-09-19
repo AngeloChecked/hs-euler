@@ -8,7 +8,7 @@ solution1 n = sum $ do
   guard $ any ((== 0) . mod x) [3,5]
   pure x
 
-solution2 n = sum [ x | x <- [1..n], (mod x 3) == 0 || (mod x 5) == 0] 
+solution2 n = sum [ x | x <- [1..n], any ((== 0) . mod x) [3,5] ] 
 
 solution3 :: Int -> Int
 solution3 n = 
